@@ -34,10 +34,8 @@ public class Engine {
         } catch (JMSException e) {
         	e.printStackTrace();
         }
-        
-		Replier rep = new Replier();
 		try {
-			rep.initialize(connection, "RequestQueue", "ErrorQueue");
+			Replier rep = Replier.newReplier(connection, "RequestQueue", "ErrorQueue");
 		} catch (NamingException e) {
 			e.printStackTrace();
 		} catch (JMSException e) {
